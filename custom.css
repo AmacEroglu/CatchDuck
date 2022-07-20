@@ -7,6 +7,30 @@
    margin-top: 2em;
 }
 
+#süre {
+    display: inline-block;
+    float: right;
+    font-size: 1rem;
+    /* border: 2px green solid;
+    background-color: green;
+    color: white; */
+    border-radius: 8px;
+    padding: 3px;
+    padding-right: 2em;
+}
+
+#süreText {
+    display: inline-block;
+    float: right;
+    font-size: 1rem;
+    /* border: 2px green solid;
+    background-color: green;
+    color: white; */
+    border-radius: 8px;
+    padding: 3px;
+    padding-right: 2em;
+}
+
 .container h1 {
     font-weight: light;
     border: 3px solid green;

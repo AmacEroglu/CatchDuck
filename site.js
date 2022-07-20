@@ -1,10 +1,12 @@
 const başlatBtn = document.getElementById('başla');
 const scoreText = document.getElementById('score');
 const ördekler = document.querySelectorAll('.ördek')
+const süreText = document.getElementById('süreText');
 
 let öncekiÖrdek;
 let süredoldu = false;
 let skor = 0;
+let süre = 15;
 
 function rastgeleÖrdek() {
     const sıra = Math.floor(Math.random() * ördekler.length);
@@ -34,6 +36,18 @@ function up() {
     }, süre);
 }
 
+// function oyunaBaşla() {
+//     if (!süredoldu) {
+//       süre--;
+//       süreText.textContent = süre;
+//     } else {
+//       süreText.textContent = "süre doldu";
+//     }
+//   }
+
+
+
+
 function oyunaBaşla() {
     süreDoldu = false;
     skor = 0;
@@ -55,6 +69,10 @@ function tıklama(e) {
 
 başlatBtn.addEventListener('click', () => {
     oyunaBaşla();
+
+    if( oyunaBaşla=true) {
+        başlatBtn.classList.remove();
+    }
 })
 
 ördekler.forEach((ördek) => {
