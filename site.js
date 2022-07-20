@@ -1,7 +1,7 @@
 const başlatBtn = document.getElementById('başla');
 const scoreText = document.getElementById('score');
-const ördekler = document.querySelectorAll('.ördek')
-const süreText = document.getElementById('süreText');
+const ordekler = document.querySelectorAll('.ördek')
+const sureText = document.querySelector('#süreText');
 
 let öncekiÖrdek;
 let süredoldu = false;
@@ -9,8 +9,8 @@ let skor = 0;
 let süre = 15;
 
 function rastgeleÖrdek() {
-    const sıra = Math.floor(Math.random() * ördekler.length);
-    const seçilenÖrdek = ördekler[sıra];
+    const sıra = Math.floor(Math.random() * ordekler.length);
+    const seçilenÖrdek = ordekler[sıra];
     if (öncekiÖrdek === seçilenÖrdek) {
         return rastgeleÖrdek();
 
@@ -27,55 +27,55 @@ function rastgeleSüre(min, max) {
 
 function up() {
     const ördek = rastgeleÖrdek();
-    const süre = rastgeleSüre(1000, 1500);
+    const ordekSüresi = rastgeleSüre(1000, 1500);
     ördek.classList.add('seçilen');
     setTimeout(() => {
         ördek.classList.remove('seçilen')
-        if (!süreDoldu)
+        if (süre != 0)
             up();
-    }, süre);
+    }, ordekSüresi);
+
 }
 
-// function oyunaBaşla() {
-//     if (!süredoldu) {
-//       süre--;
-//       süreText.textContent = süre;
-//     } else {
-//       süreText.textContent = "süre doldu";
-//     }
-//   }
 
+function geriSayim() {
+    setInterval(function () {
+        if (oyunaBaşla = süre) {
+            süre--;
+            sureText.textContent = süre;
+        } else {
+            clearInterval();
+            sureText.textContent = "süreniz doldu";
+        }
+    }, 1000);
+}
 
 
 
 function oyunaBaşla() {
-    süreDoldu = false;
-    skor = 0;
+    geriSayim();
     up();
-    setTimeout(() => {
-        süredoldu = true;
-    }, 15000);
 }
+
 
 function tıklama(e) {
     if (e.target.classList.contains('seçilen')) {
         skor++
         e.target.classList.remove('seçilen');
     }
-     
+
     scoreText.textContent = skor;
+    sureText.textContent = süre += 3;
 
 }
 
 başlatBtn.addEventListener('click', () => {
     oyunaBaşla();
+document.getElementById('başla').disabled = true;
 
-    if( oyunaBaşla=true) {
-        başlatBtn.classList.remove();
-    }
 })
 
-ördekler.forEach((ördek) => {
+ordekler.forEach((ördek) => {
     ördek.addEventListener('click', tıklama)
 });
 
